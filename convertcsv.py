@@ -6,15 +6,15 @@ with open('amazon_baby.csv', 'r') as f:
     next(reader) # Ignore first row
 
     for row in reader:
-        makes.append(row[2])
+        makes.append(row[1])
 
 labels = []
 for idx, item in enumerate(makes):
     if int(item) >= 3:
-        labels.append("positive")
+        labels.append("1")
     else:
-        labels.append("negative")
+        labels.append("0")
 
-with open('amazon_baby_label.txt', 'w') as f:
+with open('amazon_baby_binary.txt', 'w') as f:
     for item in labels:
         f.write("%s\n" % item)
